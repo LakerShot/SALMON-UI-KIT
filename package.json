@@ -8,13 +8,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build"
+  },
+  "np": {
+    "publish": false,
+    "tests": false
   },
   "keywords": [
-    "ui-kit"
+    "ui-kit",
+    "stroybook",
+    "react",
+    "typescript"
   ],
   "author": "Salmon",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-react": "^7.22.15",
