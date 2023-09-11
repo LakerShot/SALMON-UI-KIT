@@ -2,7 +2,9 @@
   "name": "salmon-ui-kit",
   "version": "1.0.0",
   "description": "ui-kit",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
