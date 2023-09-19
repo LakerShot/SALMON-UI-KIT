@@ -1,0 +1,14 @@
+stages:
+  - test
+  - build
+
+include:
+  # Path to the shared repo
+  - project: 'fhl-world/cicd/ci-templates'
+    # a proper branch name
+    ref: 'main'
+    file: 'web/publish.gitlab-ci.yml'
+
+variables:
+  DEV_S3_BUCKET_NAME: "dev-s3-cf-origin-web-design-system"
+#  PROD_S3_BUCKET_NAME: "prod-s3-cf-origin-web-design-system"
