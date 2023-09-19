@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './SalmonNotFoundPage.module.css';
-import WarningIcon from '../../assets/icon/warning.svg';
+import WarningIcon from '../../assets/icons/warning.svg';
 import SalmonButton from "../../components/SalmonButton";
 
 export interface SalmonNotFoundPageProps {

@@ -2,8 +2,8 @@ import * as React from 'react'
 import styled from "@emotion/styled";
 import {SyntheticEvent} from "react";
 import {ProviderType} from "../models";
-import Bank from "../assets/icon/bank.svg";
-import Wallet from "../assets/icon/ewallet.svg";
+import Bank from "../assets/icons/bank.svg";
+import Wallet from "../assets/icons/ewallet.svg";
 
 const Container = styled.div`
 	display: flex;
