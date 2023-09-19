@@ -43,7 +43,7 @@ const SalmonCdnIcon = styled(({code, alt, width, height, type, isDevMode = false
                 src={imgPath}
                 width={width || 'auto'}
                 height={height || 'auto'}
-                alt={alt || `${code} icon`}
+                alt={alt || `${code ?? 'fallback'} icon`}
                 onError={handleImageError}
             />
         </Container>
