@@ -1,3 +1,5 @@
 node_modules/
 lib/
 .idea
+storybook-static
+*.DS_Store
