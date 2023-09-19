@@ -1,6 +1,7 @@
 import React from 'react';
 import SalmonCdnIcon, {BASE_ICON_SIZE, SalmonCdnIconProps} from "../components/SalmonCdnIcon";
 import {Meta, StoryObj} from "@storybook/react";
+import {ProviderType} from "../models";
 
 const meta: Meta<typeof SalmonCdnIcon> = {
     title: 'SalmonCdnIcon',
@@ -16,11 +17,11 @@ const meta: Meta<typeof SalmonCdnIcon> = {
         },
         width: {
             description: 'Icon width',
-            defaultValue: BASE_ICON_SIZE,
+            defaultValue: `${BASE_ICON_SIZE}`,
         },
         height: {
             description: 'Icon height',
-            defaultValue: BASE_ICON_SIZE,
+            defaultValue: `${BASE_ICON_SIZE}`,
         },
         alt: {
             description: 'Describes the appearance or function of an image on a page',
@@ -53,4 +54,16 @@ PrimaryIconDev.args = {
     code: 'gcash',
     isDevMode: true,
     alt: 'Custom alt text'
+};
+
+export const FallbackBankIcon = Template.bind({}) as Story
+FallbackBankIcon.args = {
+    code: '',
+    type: ProviderType.BANK
+};
+
+export const FallbackWalletIcon = Template.bind({}) as Story
+FallbackWalletIcon.args = {
+    code: '',
+    type: ProviderType.E_WALLET
 };

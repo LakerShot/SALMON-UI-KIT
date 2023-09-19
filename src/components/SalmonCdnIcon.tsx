@@ -1,5 +1,15 @@
 import * as React from 'react'
 import styled from "@emotion/styled";
+import {SyntheticEvent} from "react";
+import {ProviderType} from "../models";
+import Bank from "../assets/icon/bank.svg";
+import Wallet from "../assets/icon/ewallet.svg";
+
+const Container = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
 
 const environmentCdnLinks = {
     DEVELOPMENT: 'https://cdn.dev.fhl.world/payment/providers/',
@@ -14,21 +24,29 @@ export interface SalmonCdnIconProps {
     width?: string | number
     height?: string | number
     alt?: string
+    type?: ProviderType;
 }
 
-const SalmonCdnIcon = styled(({ code, isDevMode = false, alt, width = BASE_ICON_SIZE, height = BASE_ICON_SIZE }: SalmonCdnIconProps) => {
-    const currentCdnLink = isDevMode ? environmentCdnLinks.DEVELOPMENT : environmentCdnLinks.PRODUCTION
-    const imgPath = `${currentCdnLink}${code}.svg`
+const SalmonCdnIcon = styled(({code, alt, width, height, type, isDevMode = false}: SalmonCdnIconProps) => {
+    const cdnLink = isDevMode ? environmentCdnLinks.DEVELOPMENT : environmentCdnLinks.PRODUCTION;
+
+    const imgPath = `${cdnLink}${code}.png`;
+    const handleImageError = ({ currentTarget }: SyntheticEvent<HTMLImageElement>): void => {
+        const fallbackIcon = type === ProviderType.E_WALLET ? Wallet : Bank;
+        currentTarget.onerror = null;
+        currentTarget.src = fallbackIcon;
+    };
 
     return (
-        <object type="image/svg+xml" data={imgPath} width={width || 'auto'} height={height || 'auto'} >
+        <Container>
             <img
                 src={imgPath}
                 width={width || 'auto'}
                 height={height || 'auto'}
                 alt={alt || `${code} icon`}
+                onError={handleImageError}
             />
-        </object>
+        </Container>
     )
 
 })(() => ({
