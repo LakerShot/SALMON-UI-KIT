@@ -34,6 +34,7 @@ const SalmonCdnIcon = styled(({code, alt, width, height, type, isDevMode = false
     const handleImageError = ({ currentTarget }: SyntheticEvent<HTMLImageElement>): void => {
         const fallbackIcon = type === ProviderType.E_WALLET ? Wallet : Bank;
         currentTarget.onerror = null;
+        currentTarget.src = type === ProviderType.E_WALLET ? '../assets/icons/ewallet.svg' : '../assets/icons/bank.svg'
         currentTarget.src = fallbackIcon;
     };
 
